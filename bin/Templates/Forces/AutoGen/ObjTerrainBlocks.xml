@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <Width description="" type="float" />
+  <Height description="" type="float" />
+  <Blocks_0>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_0>
+  <Blocks_1>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_1>
+  <Blocks_2>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_2>
+  <Blocks_3>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_3>
+  <Blocks_4>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_4>
+  <Blocks_5>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_5>
+  <Blocks_6>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_6>
+  <Blocks_7>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_7>
+  <Blocks_8>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_8>
+  <Blocks_9>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_9>
+  <Blocks_10>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_10>
+  <Blocks_11>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_11>
+  <Blocks_12>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_12>
+  <Blocks_13>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_13>
+  <Blocks_14>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_14>
+  <Blocks_15>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_15>
+  <Blocks_16>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_16>
+  <Blocks_17>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_17>
+  <Blocks_18>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_18>
+  <Blocks_19>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_19>
+  <Blocks_20>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_20>
+  <Blocks_21>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_21>
+  <Blocks_22>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_22>
+  <Blocks_23>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_23>
+  <Blocks_24>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_24>
+  <Blocks_25>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_25>
+  <Blocks_26>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_26>
+  <Blocks_27>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_27>
+  <Blocks_28>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_28>
+  <Blocks_29>
+    <z description="" type="float" />
+    <y description="" type="float" />
+  </Blocks_29>
+  <LayerGroup description="" type="sint8">
+    <Enum description="LAYER_LAND" value="0" />
+    <Enum description="LAYER_MOVELAND" value="1" />
+    <Enum description="LAYER_ONEWAY" value="2" />
+  </LayerGroup>
+  <AttrEnableParkour description="" type="bool" />
+  <WallLeft description="" type="sint8">
+    <Enum description="WALL_NONE" value="0" />
+    <Enum description="WALL_EXIST" value="1" />
+    <Enum description="WALL_COLLISION" value="2" />
+  </WallLeft>
+  <WallRight description="" type="sint8">
+    <Enum description="WALL_NONE" value="0" />
+    <Enum description="WALL_EXIST" value="1" />
+    <Enum description="WALL_COLLISION" value="2" />
+  </WallRight>
+  <WallFront description="" type="sint8">
+    <Enum description="WALL_NONE" value="0" />
+    <Enum description="WALL_EXIST" value="1" />
+    <Enum description="WALL_COLLISION" value="2" />
+  </WallFront>
+  <WallBack description="" type="sint8">
+    <Enum description="WALL_NONE" value="0" />
+    <Enum description="WALL_EXIST" value="1" />
+    <Enum description="WALL_COLLISION" value="2" />
+  </WallBack>
+  <WallHeight description="" type="float" />
+  <ColorType description="" type="sint8">
+    <Enum description="COLOR_GREEN" value="0" />
+    <Enum description="COLOR_BROWN" value="1" />
+    <Enum description="COLOR_BLUE" value="2" />
+    <Enum description="COLOR_WHITE" value="3" />
+    <Enum description="COLOR_RED" value="4" />
+    <Enum description="COLOR_YELLOW" value="5" />
+  </ColorType>
+  <Interval description="" type="float" />
+  <Extra length="268" name="RawByteLength" />
+</Template>

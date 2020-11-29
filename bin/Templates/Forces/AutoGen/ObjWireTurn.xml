@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <width description="" type="float" />
+  <height description="" type="float" />
+  <pillar description="" type="forcesObjectReference" />
+  <direction description="" type="sint8">
+    <Enum description="TURN_LEFT" value="0" />
+    <Enum description="TURN_RIGHT" value="1" />
+  </direction>
+  <beginAngle description="" type="float" />
+  <endAngle description="" type="float" />
+  <radius description="" type="float" />
+  <speed description="" type="float" />
+  <outOfControlTime description="" type="float" />
+  <Event0>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event0>
+  <Event1>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event1>
+  <Event2>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event2>
+  <Extra length="136" name="RawByteLength" />
+</Template>

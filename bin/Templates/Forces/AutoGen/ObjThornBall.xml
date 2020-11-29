@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <type description="" type="sint8">
+    <Enum description="TYPE_NORMAL" value="0" />
+    <Enum description="TYPE_MOVE" value="1" />
+    <Enum description="TYPE_ROLLING" value="2" />
+    <Enum description="TYPE_APPEAR" value="3" />
+    <Enum description="TYPE_PENDULUM" value="4" />
+    <Enum description="TYPE_TUMBLE" value="5" />
+  </type>
+  <hitEnemy description="" type="bool" />
+  <moveParam>
+    <time description="" type="float" />
+    <distance description="" type="float" />
+    <phase description="" type="float" />
+    <direction description="" type="sint8">
+      <Enum description="DIR_HORIZONTAL" value="0" />
+      <Enum description="DIR_VERTICAL" value="1" />
+    </direction>
+  </moveParam>
+  <rollingParam>
+    <time description="" type="float" />
+    <radius description="" type="float" />
+    <phase description="" type="float" />
+    <direction description="" type="sint8">
+      <Enum description="DIR_HORIZONTAL" value="0" />
+      <Enum description="DIR_VERTICAL" value="1" />
+    </direction>
+  </rollingParam>
+  <appearParam>
+    <time description="" type="float" />
+    <distance description="" type="float" />
+  </appearParam>
+  <pendulumParam>
+    <time description="" type="float" />
+    <radius description="" type="float" />
+    <amplitude description="" type="float" />
+    <stopTime description="" type="float" />
+    <isConstant description="" type="bool" />
+    <phase description="" type="float" />
+    <effectType description="" type="sint8">
+      <Enum description="EFFECTTYPE_DEFAULT" value="0" />
+      <Enum description="EFFECTTYPE_SAND" value="1" />
+      <Enum description="EFFECTTYPE_WATER" value="2" />
+      <Enum description="EFFECTTYPE_METAL" value="3" />
+    </effectType>
+  </pendulumParam>
+  <tumbleParam>
+    <pathId description="" type="uint32" />
+    <speed description="" type="float" />
+    <limitTime description="" type="float" />
+    <effectType description="" type="sint8">
+      <Enum description="EFFECTTYPE_DEFAULT" value="0" />
+      <Enum description="EFFECTTYPE_SAND" value="1" />
+      <Enum description="EFFECTTYPE_WATER" value="2" />
+      <Enum description="EFFECTTYPE_METAL" value="3" />
+    </effectType>
+  </tumbleParam>
+  <eventDriven description="" type="bool" />
+  <Extra length="92" name="RawByteLength" />
+</Template>

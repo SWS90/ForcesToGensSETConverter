@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <pathID description="" type="uint32" />
+  <radius description="" type="float" />
+  <acceleration description="" type="float" />
+  <deceleration description="" type="float" />
+  <minSpeed description="" type="float" />
+  <deadDistance description="" type="float" />
+  <brakeDistance description="" type="float" />
+  <stopTime description="" type="float" />
+  <fallTime description="" type="float" />
+  <groupParam_0>
+    <num description="" type="uint32" />
+    <toNextGroupTime description="" type="float" />
+    <toExitTime description="" type="float" />
+    <offset description="" type="float" />
+    <pathOffset description="" type="float" />
+    <allOffset description="" type="float" />
+  </groupParam_0>
+  <groupParam_1>
+    <num description="" type="uint32" />
+    <toNextGroupTime description="" type="float" />
+    <toExitTime description="" type="float" />
+    <offset description="" type="float" />
+    <pathOffset description="" type="float" />
+    <allOffset description="" type="float" />
+  </groupParam_1>
+  <groupParam_2>
+    <num description="" type="uint32" />
+    <toNextGroupTime description="" type="float" />
+    <toExitTime description="" type="float" />
+    <offset description="" type="float" />
+    <pathOffset description="" type="float" />
+    <allOffset description="" type="float" />
+  </groupParam_2>
+  <groupParam_3>
+    <num description="" type="uint32" />
+    <toNextGroupTime description="" type="float" />
+    <toExitTime description="" type="float" />
+    <offset description="" type="float" />
+    <pathOffset description="" type="float" />
+    <allOffset description="" type="float" />
+  </groupParam_3>
+  <Extra length="132" name="RawByteLength" />
+</Template>

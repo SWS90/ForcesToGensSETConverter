@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <pathID description="" type="uint32" />
+  <groundPathID description="" type="uint32" />
+  <layerParams_0>
+    <areaNo description="" type="uint32" />
+  </layerParams_0>
+  <layerParams_1>
+    <areaNo description="" type="uint32" />
+  </layerParams_1>
+  <Extra length="16" name="RawByteLength" />
+</Template>

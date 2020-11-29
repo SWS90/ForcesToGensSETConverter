@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <DistanceNormal description="" type="float" />
+  <DistanceBoost description="" type="float" />
+  <HeightNormal description="" type="float" />
+  <HeightBoost description="" type="float" />
+  <OutStrengthNormal description="" type="float" />
+  <OutStrengthBoost description="" type="float" />
+  <InStrengthNormal description="" type="float" />
+  <InStrengthBoost description="" type="float" />
+  <InAngleNormal description="" type="float" />
+  <InAngleBoost description="" type="float" />
+  <ImpulseSpeedOnNormal description="" type="float" />
+  <ImpulseSpeedOnBoost description="" type="float" />
+  <OutOfControlNormal description="" type="float" />
+  <OutOfControlBoost description="" type="float" />
+  <MotionTime description="" type="float" />
+  <SizeType description="" type="sint8">
+    <Enum description="SIZE_S" value="0" />
+    <Enum description="SIZE_M" value="1" />
+    <Enum description="SIZE_L" value="2" />
+    <Enum description="SIZE_COUNT" value="3" />
+  </SizeType>
+  <Event0>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event0>
+  <Event1>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event1>
+  <Event2>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event2>
+  <Extra length="160" name="RawByteLength" />
+</Template>

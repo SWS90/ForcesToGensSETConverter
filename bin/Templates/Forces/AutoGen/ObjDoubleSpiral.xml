@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <pathId description="" type="uint32" />
+  <radius description="" type="float" />
+  <distance description="" type="float" />
+  <DNACannonParam>
+    <cannonDistance description="" type="float" />
+    <appearDistanceFront description="" type="float" />
+    <appearDistanceBack description="" type="float" />
+    <attackDistanceFront description="" type="float" />
+    <attackDistanceEnd description="" type="float" />
+    <moveSpeed description="" type="float" />
+    <laserSpeed description="" type="float" />
+  </DNACannonParam>
+  <groundCannonParam>
+    <cannonDistance description="" type="float" />
+    <appearDistanceFront description="" type="float" />
+    <appearDistanceBack description="" type="float" />
+    <attackDistanceFront description="" type="float" />
+    <attackDistanceEnd description="" type="float" />
+    <moveSpeed description="" type="float" />
+    <laserSpeed description="" type="float" />
+  </groundCannonParam>
+  <Extra length="68" name="RawByteLength" />
+</Template>

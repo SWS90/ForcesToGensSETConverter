@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <effectName description="" type="string" />
+  <scale description="" type="float" />
+  <colorR description="" type="uint8" />
+  <colorG description="" type="uint8" />
+  <colorB description="" type="uint8" />
+  <colorA description="" type="uint8" />
+  <sound>
+    <name description="" type="string" />
+    <is3D description="" type="bool" />
+    <volume description="" type="float" />
+  </sound>
+  <rumble>
+    <name description="" type="string" />
+  </rumble>
+  <shapeType description="" type="sint8">
+    <Enum description="SHAPE_BOX" value="0" />
+    <Enum description="SHAPE_SPHERE" value="1" />
+  </shapeType>
+  <width description="" type="float" />
+  <height description="" type="float" />
+  <depth description="" type="float" />
+  <zOffset description="" type="float" />
+  <isStay description="" type="bool" />
+  <emitPointType description="" type="sint8">
+    <Enum description="EMIT_OBJECT" value="0" />
+    <Enum description="EMIT_PLAYER" value="1" />
+    <Enum description="EMIT_CONTACT" value="2" />
+    <Enum description="EMIT_CAMERA" value="3" />
+  </emitPointType>
+  <gravityPointType description="" type="sint8">
+    <Enum description="GRAVITY_OBJECT" value="0" />
+    <Enum description="GRAVITY_EMIT" value="1" />
+  </gravityPointType>
+  <Extra length="88" name="RawByteLength" />
+</Template>

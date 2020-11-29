@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <motion description="" type="sint8">
+    <Enum description="MOTION_TRAPEZE" value="0" />
+    <Enum description="MOTION_LAUNCH" value="1" />
+    <Enum description="MOTION_CONTINUOUS_TRAPEZE" value="2" />
+    <Enum description="MOTION_CONTINUOUS_LAUNCH" value="3" />
+  </motion>
+  <point description="" type="vector3" />
+  <size description="" type="vector2" />
+  <pathUID description="" type="uint32" />
+  <initialSpeed description="" type="float" />
+  <speed description="" type="float" />
+  <launchSpeed description="" type="float" />
+  <shiftRatio1 description="" type="float" />
+  <shiftRatio2 description="" type="float" />
+  <cameraID description="" type="forcesObjectReference" />
+  <easeInTime description="" type="float" />
+  <easeOutTime description="" type="float" />
+  <startPos description="" type="sint8">
+    <Enum description="START_BEGINNING_POINT" value="0" />
+    <Enum description="START_NEAR_POINT" value="1" />
+  </startPos>
+  <finishDist description="" type="float" />
+  <intpType description="" type="sint8">
+    <Enum description="INTP_LINEAR" value="0" />
+    <Enum description="INTP_SQRT" value="1" />
+  </intpType>
+  <intpFinishDist description="" type="float" />
+  <outOfControlTime description="" type="float" />
+  <visibility description="" type="bool" />
+  <Event0>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event0>
+  <Event1>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event1>
+  <Event2>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event2>
+  <Extra length="208" name="RawByteLength" />
+</Template>

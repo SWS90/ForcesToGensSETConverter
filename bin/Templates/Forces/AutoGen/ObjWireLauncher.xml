@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <speed description="" type="float" />
+  <type description="" type="sint8">
+    <Enum description="FIX" value="0" />
+    <Enum description="REVERSE_Z" value="1" />
+    <Enum description="CIRCLE" value="2" />
+  </type>
+  <offset description="" type="vector3" />
+  <launchTime description="" type="float" />
+  <visibility description="" type="bool" />
+  <Event0>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event0>
+  <Event1>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event1>
+  <Event2>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event2>
+  <Extra length="144" name="RawByteLength" />
+</Template>

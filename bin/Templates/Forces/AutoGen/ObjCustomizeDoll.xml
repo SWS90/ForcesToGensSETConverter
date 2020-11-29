@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <customizeData>
+    <sex description="" type="sint8">
+      <Enum description="MALE" value="0" />
+      <Enum description="FEMALE" value="1" />
+      <Enum description="NUM_SEX" value="2" />
+    </sex>
+    <race description="" type="sint8">
+      <Enum description="DOG" value="0" />
+      <Enum description="WOLF" value="1" />
+      <Enum description="RABBIT" value="2" />
+      <Enum description="BEAR" value="3" />
+      <Enum description="CAT" value="4" />
+      <Enum description="BIRD" value="5" />
+      <Enum description="HEDGEHOG" value="6" />
+      <Enum description="NUM_RACES" value="7" />
+    </race>
+    <rank description="" type="uint8" />
+    <gadgetNo description="" type="uint8" />
+    <head description="" type="uint8" />
+    <eye description="" type="uint8" />
+    <voice description="" type="uint8" />
+    <baseColor description="" type="uint8" />
+    <skinColor description="" type="uint8" />
+    <beakColor description="" type="uint8" />
+    <eyeColor description="" type="uint8" />
+    <headPart description="" type="uint8" />
+    <glassPart description="" type="uint8" />
+    <facePart description="" type="uint8" />
+    <glovePart description="" type="uint8" />
+    <shoesPart description="" type="uint8" />
+    <bodyPart description="" type="uint8" />
+    <suitNo description="" type="uint8" />
+    <innerColor description="" type="uint8" />
+    <resultMotionNo description="" type="uint8" />
+    <experiencePoint description="" type="uint32" />
+  </customizeData>
+  <Extra length="24" name="RawByteLength" />
+</Template>

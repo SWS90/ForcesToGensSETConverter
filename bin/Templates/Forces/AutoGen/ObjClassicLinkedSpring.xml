@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <placeNum description="" type="sint32" />
+  <interval description="" type="float" />
+  <isEventOn description="" type="bool" />
+  <springSpawner>
+    <velocity description="" type="float" />
+    <outOfControl description="" type="float" />
+    <motionTime description="" type="float" />
+    <motionType description="" type="sint8">
+      <Enum description="MOTION_VERTICAL" value="0" />
+      <Enum description="MOTION_ANGLE" value="1" />
+    </motionType>
+    <colorType description="" type="sint8">
+      <Enum description="YELLOW" value="0" />
+      <Enum description="RED" value="1" />
+    </colorType>
+    <isHorizon description="" type="bool" />
+  </springSpawner>
+  <Event0>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event0>
+  <Event1>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event1>
+  <Event2>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </Event2>
+  <Extra length="128" name="RawByteLength" />
+</Template>

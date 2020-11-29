@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Template>
+  <pathId description="" type="sint32" />
+  <startPos description="" type="float" />
+  <dropFrondDistance description="" type="float" />
+  <wireLength description="" type="float" />
+  <minSpeed description="" type="float" />
+  <maxSpeed description="" type="float" />
+  <shootAngle description="" type="float" />
+  <shootSpeed description="" type="float" />
+  <outOfControl description="" type="float" />
+  <event0>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </event0>
+  <event1>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </event1>
+  <event2>
+    <target description="" type="forcesObjectList" />
+    <eventType description="" type="sint8">
+      <Enum description="EVENT_ON" value="0" />
+      <Enum description="EVENT_OFF" value="1" />
+    </eventType>
+    <timer description="" type="float" />
+  </event2>
+  <Extra length="136" name="RawByteLength" />
+</Template>
