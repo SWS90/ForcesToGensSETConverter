@@ -67,8 +67,8 @@ namespace ForcesToGensSETConverter
                 if (forcesObj.ObjectType == "ObjRing")
                 {
                     gensObj = new SetObject(gensTemplates["Ring"], "Ring", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
-                    gensObj.Parameters[6] = forcesObj.Parameters[0]; //ResetTime
-
+                    gensObj.Parameters[6].Data = forcesObj.Parameters[0].Data; //ResetTime
+                    
                     // Range
                     float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
                     gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
@@ -130,10 +130,38 @@ namespace ForcesToGensSETConverter
                     gensObj.Transform = forcesObj.Transform;
                     gensObj.Transform.Position /= 10;
                 }
-                else if (forcesObj.ObjectType == "ObjLinkedSpring")//TODO - Object Params
+                else if (forcesObj.ObjectType == "ObjLinkedSpring")
                 {
                     gensObj = new SetObject(gensTemplates["Spring"], "Spring", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
                     gensObj.UseGensVector3 = true;
+                    var Normal = (SetObjectParamGroup)(forcesObj.Parameters[7]); // <Normal> ParamGroup in ObjLinkedSpring.xml
+                    var Path = (SetObjectParamGroup)(forcesObj.Parameters[8]); // <Path> ParamGroup in ObjLinkedSpring.xml
+                    if ((byte)forcesObj.Parameters[3].Data == 0) //Normal Behavior
+                    { 
+                        gensObj.Parameters[3].Data = ((float)Normal.Parameters[0].Data) / 10; // FirstSpeed
+                        gensObj.Parameters[16].Data = ((float)Normal.Parameters[2].Data) / 10; // KeepVelocityDistance
+                        gensObj.Parameters[18].Data = ((float)Normal.Parameters[1].Data); // OutOfControl
+                    }
+                    if ((byte)forcesObj.Parameters[3].Data == 1) //Path Behavior
+                    {
+                        gensObj.Parameters[3].Data = ((float)Path.Parameters[0].Data) / 10; // FirstSpeed
+                    }
+                    
+                    // Rangeom
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
+                else if (forcesObj.ObjectType == "ObjSkySpring")
+                {
+                    gensObj = new SetObject(gensTemplates["AirSpring"], "AirSpring", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    gensObj.UseGensVector3 = true;
+                    gensObj.Parameters[2].Data = ((float)forcesObj.Parameters[0].Data) / 10; // FirstSpeed
+                    gensObj.Parameters[13].Data = ((float)forcesObj.Parameters[2].Data) / 10; // KeepVelocityDistance
+                    gensObj.Parameters[15].Data = ((float)forcesObj.Parameters[1].Data); // OutOfControl
 
                     // Range
                     float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
@@ -149,6 +177,20 @@ namespace ForcesToGensSETConverter
                     gensObj.Parameters[5].Data = !((bool)forcesObj.Parameters[2].Data); // IsInvisible
                     gensObj.Parameters[8].Data = ((float)forcesObj.Parameters[0].Data); // OutOfControl
                     gensObj.Parameters[10].Data = ((float)forcesObj.Parameters[1].Data) / 10; // Speed
+
+                    // Range
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) /10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
+                else if (forcesObj.ObjectType == "ObjGrindBooster")
+                {
+                    gensObj = new SetObject(gensTemplates["GrindDashPanel"], "GrindDashPanel", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    gensObj.Parameters[4].Data = ((float)forcesObj.Parameters[0].Data) * 10; // OutOfControl
+                    gensObj.Parameters[6].Data = ((float)forcesObj.Parameters[1].Data) / 10; // Speed
 
                     // Range
                     float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
@@ -331,6 +373,34 @@ namespace ForcesToGensSETConverter
                 }
                 //Enemy objects end
 
+                //Trigger objects start
+                else if (forcesObj.ObjectType == "AutorunTrigger")
+                {
+                    if ((byte)forcesObj.Parameters[0].Data == 0) // action = ACT_START
+                    {
+                        gensObj = new SetObject(gensTemplates["AutorunStartCollision"], "AutorunStartCollision", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                        gensObj.ObjectType = "AutorunStartCollision";
+                        gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[3].Data) / 10; // Collision_Height - Forces Height
+                        gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[2].Data) / 10; // Collision_Width - Forces Width
+                        gensObj.Parameters[8].Data = ((float)forcesObj.Parameters[5].Data) / 10; // Speed
+                    }
+                    if ((byte)forcesObj.Parameters[0].Data == 1) // action = ACT_FINISH
+                    {
+                        gensObj = new SetObject(gensTemplates["AutorunFinishCollision"], "AutorunFinishCollision", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                        gensObj.ObjectType = "AutorunFinishCollision";
+                        gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[3].Data) / 10; // Collision_Height - Forces Height
+                        gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[2].Data) / 10; // Collision_Width - Forces Width
+                    }
+                    // Range
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
+                //Trigger objects end
+
                 // Old entries by Rad i've yet to convert...
                 /*else if (forcesObj.ObjectType == "ObjClassicSpring")
                 {
@@ -372,14 +442,24 @@ namespace ForcesToGensSETConverter
             string supportedObjects = Path.Combine(directoryName, "setdata_" + forcesGeditFileName + ".set.xml");
             string unsupportedObjects = Path.Combine(directoryName, "setdata_Unconverted_" + forcesGeditFileName + ".set.xml");
             string supportedObjects_ObjPhysics = Path.Combine(directoryName, "setdata_ObjectPhysics_" + forcesGeditFileName + ".set.xml");
-            Console.WriteLine("Saving Gens .set.xml's...");
-            gensSetData.Save(supportedObjects, gensTemplates);
-            Console.WriteLine(supportedObjects + " " + "saved!");
-            Console.WriteLine("Saving unconverted objects to a new .set.xml...");
-            unknownObjects.Save(unsupportedObjects, gensTemplates);
-            Console.WriteLine("Saving ObjectPhysics objects to a new .set.xml...");
-            objectPhysicsObjects.Save(supportedObjects_ObjPhysics, gensTemplates);
-            Console.WriteLine(unsupportedObjects + " " + "saved!");
+            if (gensSetData.Objects.Count > 0)
+            {
+                Console.WriteLine("Saving supported objects to .set.xml...");
+                gensSetData.Save(supportedObjects, gensTemplates);
+                Console.WriteLine(supportedObjects + " " + "saved!");
+            }
+            if (unknownObjects.Objects.Count > 0)
+            {
+                Console.WriteLine("Saving unconverted objects to .set.xml...");
+                unknownObjects.Save(unsupportedObjects, gensTemplates);
+                Console.WriteLine(unsupportedObjects + " " + "saved!");
+            }
+            if (objectPhysicsObjects.Objects.Count > 0)
+            {
+                Console.WriteLine("Saving ObjectPhysics objects to .set.xml...");
+                objectPhysicsObjects.Save(supportedObjects_ObjPhysics, gensTemplates);
+                Console.WriteLine(supportedObjects_ObjPhysics + " " + "saved!");
+            }
             Console.WriteLine("Done!\nPress any key to close...");
             Console.ReadKey();
         }
