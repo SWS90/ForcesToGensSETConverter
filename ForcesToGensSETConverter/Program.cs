@@ -78,6 +78,19 @@ namespace ForcesToGensSETConverter
                     gensObj.Transform.Position /= 10;
                     forcesObj.Transform.Position.Y += 0.3f;
                 }
+                else if (forcesObj.ObjectType == "ObjSuperRing")
+                {
+                    gensObj = new SetObject(gensTemplates["SuperRing"], "SuperRing", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    
+                    // Range
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                    forcesObj.Transform.Position.Y += 0.3f;
+                }
                 else if (forcesObj.ObjectType == "ObjDashRing")
                 {
                     gensObj = new SetObject(gensTemplates["DashRing"], "DashRing", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
@@ -316,6 +329,41 @@ namespace ForcesToGensSETConverter
                     gensObj.Transform.Position.Y += ((Vector3)forcesObj.Parameters[13].Data).Y;
                     gensObj.Transform.Position.Z += ((Vector3)forcesObj.Parameters[13].Data).Z;
                     gensObj.Transform.Position /= 10;
+                }
+                else if (forcesObj.ObjectType == "ObjIronBox")
+                {
+                    gensObj = new SetObject(gensTemplates["ObjectPhysics"], "ObjectPhysics", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    gensObj.UseGensVector3 = true;
+                    gensObj.Parameters[4].Data = ((bool)forcesObj.Parameters[3].Data); // IsCastShadow
+                    gensObj.Parameters[8].Data = ((string)"IronBox"); // Type
+                    
+                    // Range
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
+                else if (forcesObj.ObjectType == "ObjWispCapsule")
+                {
+                    if ((byte)forcesObj.Parameters[0].Data == 0) // Type = Wispon Power
+                    {
+                        //Do nothing, don't want to convert Wispon Power Type
+                    }
+                    if ((byte)forcesObj.Parameters[0].Data == 1) // Type = Boost Wisp
+                    {
+                        gensObj = new SetObject(gensTemplates["SuperRing"], "SuperRing", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+
+                        // Range
+                        float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                        gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                        // Transform
+                        gensObj.Transform = forcesObj.Transform;
+                        gensObj.Transform.Position /= 10;
+                        forcesObj.Transform.Position.Y += 0.55f;
+                    }
                 }
                 //Common objects end
 
