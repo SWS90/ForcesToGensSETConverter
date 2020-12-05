@@ -365,6 +365,24 @@ namespace ForcesToGensSETConverter
                         forcesObj.Transform.Position.Y += 0.55f;
                     }
                 }
+                else if (forcesObj.ObjectType == "ObjBalloon2")
+                {
+                    gensObj = new SetObject(gensTemplates["Balloon"], "Balloon", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    gensObj.Parameters[1].Data = ((byte)forcesObj.Parameters[0].Data); // Dimension
+                    gensObj.Parameters[4].Data = ((bool)forcesObj.Parameters[5].Data); // IsDefaultPositionRecover
+                    gensObj.Parameters[7].Data = ((float)forcesObj.Parameters[4].Data); // ReviveTime
+                    gensObj.Parameters[8].Data = ((float)forcesObj.Parameters[3].Data) / 10; // SpeedMax
+                    gensObj.Parameters[9].Data = ((float)forcesObj.Parameters[2].Data) / 10; // SpeedMin
+                    gensObj.Parameters[10].Data = ((float)forcesObj.Parameters[1].Data) / 10; // UpSpeed
+                    
+                    // Range
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
                 //Common objects end
 
                 //Camera objects start
@@ -449,6 +467,41 @@ namespace ForcesToGensSETConverter
                 }
                 //Trigger objects end
 
+                // Sound objects start
+                else if (forcesObj.ObjectType == "ObjPointSoundSource")
+                {
+                    gensObj = new SetObject(gensTemplates["SoundPoint"], "SoundPoint", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    gensObj.WriteGensRangeAsNormalParam = true;
+                    gensObj.WriteGensRangeAsSpecialParam = false;
+                    gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[4].Data); // Volume
+                    gensObj.Parameters[1].Data = ((string)forcesObj.Parameters[0].Data); // Cuename
+                    gensObj.Parameters[9].Data = ((float)forcesObj.Parameters[5].Data) / 5; // Range
+                    gensObj.Parameters[8].Data = ((float)gensObj.Parameters[9].Data) - 4; // Radius
+                    gensObj.Parameters[4].Data = ((float)gensObj.Parameters[8].Data) - 13; // InsideRadius
+                    
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
+                else if (forcesObj.ObjectType == "ObjChangeBGMTrigger")
+                {
+                    gensObj = new SetObject(gensTemplates["ChangeBGMCollision"], "ChangeBGMCollision", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[5].Data) / 10; // Collision_Height
+                    gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[4].Data) / 10; // Collision_Width
+                    gensObj.Parameters[8].Data = ((float)forcesObj.Parameters[3].Data); // LerpTimeBack
+                    gensObj.Parameters[9].Data = ((float)forcesObj.Parameters[3].Data); // LerpTimeFront
+
+
+                    // Range
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
+                // Sound objects end
+
                 // Old entries by Rad i've yet to convert...
                 /*else if (forcesObj.ObjectType == "ObjClassicSpring")
                 {
@@ -464,6 +517,7 @@ namespace ForcesToGensSETConverter
                     {
                         var unknownObj = new SetObject();
                         unknownObj.ObjectType = forcesObj.ObjectType;
+                        unknownObj.ObjectID = forcesObj.ObjectID;
                         unknownObj.Transform = forcesObj.Transform;
                         unknownObj.Transform.Position /= 10;
                         unknownObjects.Objects.Add(unknownObj);
