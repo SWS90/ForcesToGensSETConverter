@@ -68,7 +68,7 @@ namespace ForcesToGensSETConverter
                 {
                     gensObj = new SetObject(gensTemplates["Ring"], "Ring", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
                     gensObj.Parameters[6].Data = forcesObj.Parameters[0].Data; //ResetTime
-                    
+
                     // Range
                     float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
                     gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
@@ -81,7 +81,7 @@ namespace ForcesToGensSETConverter
                 else if (forcesObj.ObjectType == "ObjSuperRing")
                 {
                     gensObj = new SetObject(gensTemplates["SuperRing"], "SuperRing", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
-                    
+
                     // Range
                     float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
                     gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
@@ -150,7 +150,7 @@ namespace ForcesToGensSETConverter
                     var Normal = (SetObjectParamGroup)(forcesObj.Parameters[7]); // <Normal> ParamGroup in ObjLinkedSpring.xml
                     var Path = (SetObjectParamGroup)(forcesObj.Parameters[8]); // <Path> ParamGroup in ObjLinkedSpring.xml
                     if ((byte)forcesObj.Parameters[3].Data == 0) //Normal Behavior
-                    { 
+                    {
                         gensObj.Parameters[3].Data = ((float)Normal.Parameters[0].Data) / 10; // FirstSpeed
                         gensObj.Parameters[16].Data = ((float)Normal.Parameters[2].Data) / 10; // KeepVelocityDistance
                         gensObj.Parameters[18].Data = ((float)Normal.Parameters[1].Data); // OutOfControl
@@ -159,7 +159,7 @@ namespace ForcesToGensSETConverter
                     {
                         gensObj.Parameters[3].Data = ((float)Path.Parameters[0].Data) / 10; // FirstSpeed
                     }
-                    
+
                     // Rangeom
                     float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
                     gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
@@ -192,7 +192,7 @@ namespace ForcesToGensSETConverter
                     gensObj.Parameters[10].Data = ((float)forcesObj.Parameters[1].Data) / 10; // Speed
 
                     // Range
-                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) /10;
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
                     gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
 
                     // Transform
@@ -336,7 +336,7 @@ namespace ForcesToGensSETConverter
                     gensObj.UseGensVector3 = true;
                     gensObj.Parameters[4].Data = ((bool)forcesObj.Parameters[3].Data); // IsCastShadow
                     gensObj.Parameters[8].Data = ((string)"IronBox"); // Type
-                    
+
                     // Range
                     float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
                     gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
@@ -374,7 +374,7 @@ namespace ForcesToGensSETConverter
                     gensObj.Parameters[8].Data = ((float)forcesObj.Parameters[3].Data) / 10; // SpeedMax
                     gensObj.Parameters[9].Data = ((float)forcesObj.Parameters[2].Data) / 10; // SpeedMin
                     gensObj.Parameters[10].Data = ((float)forcesObj.Parameters[1].Data) / 10; // UpSpeed
-                    
+
                     // Range
                     float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
                     gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
@@ -388,39 +388,91 @@ namespace ForcesToGensSETConverter
                 //Camera objects start
                 else if (forcesObj.ObjectType == "ObjCameraVolume")
                 {
-                    gensObj = new SetObject(gensTemplates["ChangeVolumeCamera"], "ChangeVolumeCamera", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
-                    gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[12].Data) / 10; // Collision_Height - Forces Heigh
-                    gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[13].Data) / 10; // Collision_Length - Forces Depth
-                    gensObj.Parameters[2].Data = ((float)forcesObj.Parameters[11].Data) / 10; // Collision_Width - Forces Width
-                    gensObj.Parameters[3].Data = ((byte)forcesObj.Parameters[7].Data); // DefaultStatus
-                    gensObj.Parameters[4].Data = ((float)forcesObj.Parameters[3].Data); // Ease_Time_Enter
-                    gensObj.Parameters[5].Data = ((float)forcesObj.Parameters[4].Data); // Ease_Time_Leave
-                    gensObj.Parameters[11].Data = ((uint)forcesObj.Parameters[1].Data); // Priority
-                    gensObj.Parameters[14].Data = ((ForcesSetData.ObjectReference)forcesObj.Parameters[0].Data); // Target
+                    if ((byte)forcesObj.Parameters[10].Data == 0) // BasePoint = BASE_CENTER
+                    {
+                        gensObj = new SetObject(gensTemplates["ChangeVolumeCamera"], "ChangeVolumeCamera", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                        gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[12].Data) / 10; // Collision_Height - Forces Heigh
+                        gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[13].Data) / 10; // Collision_Length - Forces Depth
+                        gensObj.Parameters[2].Data = ((float)forcesObj.Parameters[11].Data) / 10; // Collision_Width - Forces Width*
+                        gensObj.Parameters[3].Data = ((byte)forcesObj.Parameters[7].Data); // DefaultStatus
+                        gensObj.Parameters[4].Data = ((float)forcesObj.Parameters[3].Data); // Ease_Time_Enter
+                        gensObj.Parameters[5].Data = ((float)forcesObj.Parameters[4].Data); // Ease_Time_Leave
+                        gensObj.Parameters[11].Data = ((uint)forcesObj.Parameters[1].Data); // Priority
+                        gensObj.Parameters[14].Data = ((ForcesSetData.ObjectReference)forcesObj.Parameters[0].Data); // Target
 
-                    // Range
-                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
-                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+                        // Range
+                        float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                        gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
 
-                    // Transform
-                    gensObj.Transform = forcesObj.Transform;
-                    gensObj.Transform.Position /= 10;
+                        // Transform
+                        gensObj.Transform = forcesObj.Transform;
+                        gensObj.Transform.Position /= 10;
+                    }
+                    if ((byte)forcesObj.Parameters[10].Data == 1) // BasePoint = BASE_Z_PLANE
+                    {
+                        gensObj = new SetObject(gensTemplates["ChangeVolumeCamera"], "ChangeVolumeCamera", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                        gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[12].Data) / 10; // Collision_Height - Forces Heigh
+                        gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[13].Data) / 10; // Collision_Length - Forces Depth
+                        gensObj.Parameters[2].Data = ((float)forcesObj.Parameters[11].Data) / 10; // Collision_Width - Forces Width
+                        gensObj.Parameters[3].Data = ((byte)forcesObj.Parameters[7].Data); // DefaultStatus
+                        gensObj.Parameters[4].Data = ((float)forcesObj.Parameters[3].Data); // Ease_Time_Enter
+                        gensObj.Parameters[5].Data = ((float)forcesObj.Parameters[4].Data); // Ease_Time_Leave
+                        gensObj.Parameters[11].Data = ((uint)forcesObj.Parameters[1].Data); // Priority
+                        gensObj.Parameters[14].Data = ((ForcesSetData.ObjectReference)forcesObj.Parameters[0].Data); // Target
+
+                        var HalfDepth = ((float)forcesObj.Parameters[13].Data) / 2;
+
+                        // Range
+                        float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                        gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                        // Transform
+                        gensObj.Transform = forcesObj.Transform;
+                        Vector3 V3 = Vector3.Transform(new Vector3(0, 0, -1), gensObj.Transform.Rotation);
+                        V3 = Vector3.Normalize(V3);
+                        gensObj.Transform.Position -= V3 * HalfDepth;
+                        gensObj.Transform.Position /= 10;
+                    }
                 }
                 else if (forcesObj.ObjectType == "ObjCameraSubVolume")
                 {
-                    gensObj = new SetObject(gensTemplates["ChangeVolumeCamera"], "ChangeVolumeCamera", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
-                    gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[4].Data) / 10; // Collision_Height - Forces Height
-                    gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[5].Data) / 10; // Collision_Length - Forces Depth
-                    gensObj.Parameters[2].Data = ((float)forcesObj.Parameters[3].Data) / 10; // Collision_Width - Forces Width
-                    gensObj.Parameters[14].Data = ((ForcesSetData.ObjectReference)forcesObj.Parameters[0].Data); // Target
+                    if ((sbyte)forcesObj.Parameters[2].Data == 0) // BasePoint = BASE_CENTER
+                    {
+                        gensObj = new SetObject(gensTemplates["ChangeVolumeCamera"], "ChangeVolumeCamera", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                        gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[4].Data) / 10; // Collision_Height - Forces Height
+                        gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[5].Data) / 10; // Collision_Length - Forces Depth
+                        gensObj.Parameters[2].Data = ((float)forcesObj.Parameters[3].Data) / 10; // Collision_Width - Forces Width*
+                        gensObj.Parameters[14].Data = ((ForcesSetData.ObjectReference)forcesObj.Parameters[0].Data); // Target
 
-                    // Range
-                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
-                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+                        // Range
+                        float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                        gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
 
-                    // Transform
-                    gensObj.Transform = forcesObj.Transform;
-                    gensObj.Transform.Position /= 10;
+                        // Transform
+                        gensObj.Transform = forcesObj.Transform;
+                        gensObj.Transform.Position /= 10;
+                    }
+                    if ((sbyte)forcesObj.Parameters[2].Data == 1) // BasePoint = BASE_Z_PLANE
+                    {
+                        gensObj = new SetObject(gensTemplates["ChangeVolumeCamera"], "ChangeVolumeCamera", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                        gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[4].Data) / 10; // Collision_Height - Forces Height
+                        gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[5].Data) / 10; // Collision_Length - Forces Depth
+                        gensObj.Parameters[2].Data = ((float)forcesObj.Parameters[3].Data) / 10; // Collision_Width - Forces Width*
+                        gensObj.Parameters[14].Data = ((ForcesSetData.ObjectReference)forcesObj.Parameters[0].Data); // Target
+
+                        var HalfDepth = ((float)forcesObj.Parameters[5].Data) / 2;
+
+                        // Range
+                        float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                        gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                        // Transform
+                        gensObj.Transform = forcesObj.Transform;
+                        Vector3 V3 = Vector3.Transform(new Vector3(0, 0, -1), gensObj.Transform.Rotation);
+                        V3 = Vector3.Normalize(V3);
+                        gensObj.Transform.Position -= V3 * HalfDepth;
+                        gensObj.Transform.Position /= 10;
+                    }
                 }
                 //Camera objects end
 
@@ -478,7 +530,7 @@ namespace ForcesToGensSETConverter
                     gensObj.Parameters[9].Data = ((float)forcesObj.Parameters[5].Data) / 5; // Range
                     gensObj.Parameters[8].Data = ((float)gensObj.Parameters[9].Data) - 4; // Radius
                     gensObj.Parameters[4].Data = ((float)gensObj.Parameters[8].Data) - 13; // InsideRadius
-                    
+
                     // Transform
                     gensObj.Transform = forcesObj.Transform;
                     gensObj.Transform.Position /= 10;
@@ -526,9 +578,9 @@ namespace ForcesToGensSETConverter
                 if (gensObj != null) // Objects in code
                 {
                     gensSetData.Objects.Add(gensObj);
-                    
+
                 }
-                if (gensObjPhysics != null) 
+                if (gensObjPhysics != null)
                 {
                     if (forcesObj.ObjectType == "ObjGismo")
                     {
