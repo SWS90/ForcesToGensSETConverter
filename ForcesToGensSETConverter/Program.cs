@@ -412,6 +412,51 @@ namespace ForcesToGensSETConverter
                     gensObj.Transform = forcesObj.Transform;
                     gensObj.Transform.Position /= 10;
                 }
+                else if (forcesObj.ObjectType == "ObjPulley")
+                {
+                    gensObj = new SetObject(gensTemplates["Pulley"], "Pulley", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[2].Data); // EndPosition
+                    gensObj.Parameters[3].Data = ((bool)forcesObj.Parameters[3].Data); // IsJumpCancel
+                    gensObj.Parameters[6].Data = ((float)forcesObj.Parameters[5].Data) /10; // MinInitVel
+                    gensObj.Parameters[7].Data = ((uint)forcesObj.Parameters[0].Data); // PathID
+                    gensObj.Parameters[9].Data = ((float)forcesObj.Parameters[1].Data); // StartPosition
+
+                    // Range
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
+                else if (forcesObj.ObjectType == "ObjUpReel")
+                {
+                    gensObj = new SetObject(gensTemplates["UpReel"], "UpReel", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[2].Data) /10; // ImpulseVelocity
+                    gensObj.Parameters[4].Data = ((float)forcesObj.Parameters[0].Data) /10; // Length
+                    gensObj.Parameters[5].Data = ((float)forcesObj.Parameters[3].Data); // OutOfControl
+                    gensObj.Parameters[7].Data = ((float)forcesObj.Parameters[1].Data) /10; // UpSpeedMax
+                    // Range
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
+                else if (forcesObj.ObjectType == "ObjSpringPole")
+                {
+                    gensObj = new SetObject(gensTemplates["JumpPole"], "JumpPole", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
+                    //TODO: Params
+
+                    // Range
+                    float range = forcesObj.GetCustomDataValue("RangeIn", 1000f) / 10;
+                    gensObj.CustomData.Add("Range", new SetObjectParam(typeof(float), range));
+
+                    // Transform
+                    gensObj.Transform = forcesObj.Transform;
+                    gensObj.Transform.Position /= 10;
+                }
                 //Common objects end
 
                 //Camera objects start
@@ -558,8 +603,8 @@ namespace ForcesToGensSETConverter
                 else if (forcesObj.ObjectType == "ObjCameraFollow")
                 {
                     gensObj = new SetObject(gensTemplates["ObjCameraParallel"], "ObjCameraParallel", forcesObj.ObjectID, forcesObj.TargetID, forcesObj.TargetPosition);
-                    gensObj.Parameters[1].Data = ((float)forcesObj.Parameters[3].Data) / 10; // Distance
-                    gensObj.Parameters[3].Data = ((float)forcesObj.Parameters[3].Data); // Fovy
+                    gensObj.Parameters[0].Data = ((float)forcesObj.Parameters[3].Data) / 10; // Distance
+                    gensObj.Parameters[3].Data = ((float)forcesObj.Parameters[1].Data); // Fovy
                     gensObj.Parameters[5].Data = ((bool)forcesObj.Parameters[0].Data); // IsCameraView
                     gensObj.Parameters[11].Data = ((float)forcesObj.Parameters[5].Data); // Pitch
                     gensObj.Parameters[21].Data = ((float)forcesObj.Parameters[4].Data); // Yaw
